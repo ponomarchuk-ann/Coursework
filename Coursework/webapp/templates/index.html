@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-6">
+    <p><b>Время чтения:</b>
+      <a style="text-decoration: none;color:rgb(60, 130, 234)" href="{{ url_for('news.filter_by_read_time', read_time=0) }}">Любое</a> | <a style="text-decoration: none;color:rgb(60, 130, 234)" href="{{ url_for('news.filter_by_read_time', read_time=5) }}">До 5 минут</a> | <a style="text-decoration: none;color:rgb(60, 130, 234)" href="{{ url_for('news.filter_by_read_time', read_time=10) }}">От 5 до 10 минут</a> | <a style="text-decoration: none;color:rgb(60, 130, 234)" href="{{ url_for('news.filter_by_read_time', read_time=20) }}">Более 10 минут</a>
+    </p>
+  </div>
+</div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            {% for post in posts %}
+                <p>{{ post.date.strftime('%d %B, %H:%M') }}<small>{{ post.time }}</small><a href="{{ url_for('user.add_to_favorites', news_id=post.id) }}">
+                  {% if post.id not in favs %}
+                    <img style="margin-left: 10px;" src="./static/images/unlike.png" width="16px" height="16px">
+                  {% else %}
+                    <img style="margin-left: 10px;" src="./static/images/like.png" width="16px" height="16px">
+                  {% endif %}
+                  </a><br></p>
+                <h5><a href="{{ url_for('news.news_index', news_id=post.id) }}" style="text-decoration: none;color:midnightblue">{{ post.title }}</a></h5>
+                <hr style="color:darkblue">
+            {% endfor %}
+        </div>
+{% endblock %}

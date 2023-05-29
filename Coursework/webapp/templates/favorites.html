@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Мои избранные страницы:</h1>
+    <ul>
+        {% for post in posts %}
+        {% if post.id in favs %}
+            <p>{{ post.date.strftime('%d %B, %H:%M') }}<small>{{ post.time }}</small><a href="{{ url_for('user.add_to_favorites', news_id=post.id) }}">
+                <img style="margin-left: 10px;" src="./static/images/like.png" width="16px" height="16px"></a><br></p>
+            <h5><a href="{{ url_for('news.news_index', news_id=post.id) }}" style="text-decoration: none;color:indianred">{{ post.title }}</a></h5>
+            <hr style="color:darkblue">
+        {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

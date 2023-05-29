@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Форма для регистрации</h2>
+  <form method="POST" action="{{ url_for('user.register') }}">
+    {{ form.csrf_token }}
+    <div class="form-group">
+      {{ form.username.label }} {{ form.username }}
+    </div>
+    <div class="form-group">
+      {{ form.password.label }} {{ form.password }}
+    </div>
+    <div class="form-group">
+      {{ form.confirm_password.label }} {{ form.confirm_password }}
+    </div>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
+{% endblock %}
