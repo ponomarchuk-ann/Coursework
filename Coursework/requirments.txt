@@ -12,7 +12,7 @@ DateTime==4.7
 dbus-python==1.2.16
 debugpy==1.6.3
 decorator==5.1.1
-Flask==2.3.2
+Flask==2.2.5
 Flask-Login==0.6.2
 Flask-Migrate==4.0.4
 Flask-SQLAlchemy==3.0.3
