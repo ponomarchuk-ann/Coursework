@@ -30,7 +30,6 @@ requests-unixsocket==0.2.0
 selenium==4.9.1
 soupsieve==1.9.5
 SQLAlchemy==2.0.13
-ufw==0.36
 Unidecode==1.1.1
 urllib3==2.0.2
 vine==5.0.0
